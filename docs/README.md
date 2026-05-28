@@ -25,3 +25,25 @@ chmod +x server-info.sh
 -How pipes combine commands to produce structured output
 -How bash scripts automate manual tasks
 
+## Day 3 - health-check.sh
+
+A bash script that checks system health and reports OK Or WARN for each check.
+
+**What it checks:**
+-Disk usage (warns above 80%)
+-Memory availability
+-Service status (ssh, cron)
+-Critical directory existence
+
+**How to run:**
+bash health-check.sh
+
+
+**What I learned:** 
+-Linux file permissions (chmod, chown)
+-Numeric permission values (755, 644, 600)
+-Creating dedicated service users with no login shell
+-Bash variables, if statements, and for loops
+-Why apps should never run as root
+-Idempotency concept
+-Debugging bash scripts with bash -n
