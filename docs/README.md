@@ -53,6 +53,8 @@ bash health-check.sh
 - Debugging bash scripts with bash -n
 
 
+
+
 ##Day 4
 
 ##deploy-check.sh
@@ -69,13 +71,13 @@ Directory Topology: Structural confirmation that the mandatory server workspace 
 
 How to run:
 Bash
-# Run on clean shell environment to test isolation fallback logic
+**Run on clean shell environment to test isolation fallback logic**
 bash ~/cloud-app/scripts/deploy-check.sh
 
-# Manually scoop credentials from static asset file to memory
+**Manually scoop credentials from static asset file to memory**
 export $(cat ~/cloud-app/.env | xargs)
 
-# Execute again to confirm readiness state 
+**Execute again to confirm readiness state** 
 bash ~/cloud-app/scripts/deploy-check.sh
 What I learned:
 Environment Variable Lifecycle Management:
