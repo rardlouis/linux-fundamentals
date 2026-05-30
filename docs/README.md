@@ -58,16 +58,16 @@ bash health-check.sh
 ## Day 4
 
 ## deploy-check.sh
-A comprehensive deployment readiness script that automates system pre-flight checks, verifies environmental isolation, evaluates hardware capacities, and ensures key path configurations are present before code release.
+- A comprehensive deployment readiness script that automates system pre-flight checks, verifies environmental isolation, evaluates hardware capacities, and ensures key path configurations are present before code release.
 
 What it checks:
-Environment Configuration: Validates that crucial runtime variables (PORT, NODE_ENV, DB_HOST) have been actively ingested into systemic memory.
+- Environment Configuration: Validates that crucial runtime variables (PORT, NODE_ENV, DB_HOST) have been actively ingested into systemic memory.
 
-Service Status: Confirms that the target system's background SSH daemon (sshd) is listening and responding on standard ports.
+- Service Status: Confirms that the target system's background SSH daemon (sshd) is listening and responding on standard ports.
 
-System Resources: Evaluates critical drive limits to prevent deployment failures from storage exhaustion (warns/fails if disk consumption exceeds 85%).
+- System Resources: Evaluates critical drive limits to prevent deployment failures from storage exhaustion (warns/fails if disk consumption exceeds 85%).
 
-Directory Topology: Structural confirmation that the mandatory server workspace scaffolding (scripts/, logs/, config/) exists.
+- Directory Topology: Structural confirmation that the mandatory server workspace scaffolding (scripts/, logs/, config/) exists.
 
 How to run:
 Bash
@@ -82,24 +82,52 @@ bash ~/cloud-app/scripts/deploy-check.sh
 What I learned:
 Environment Variable Lifecycle Management:
 
-Discovered that .env config blocks are passive structural data files; they do not automatically execute or load into process trees on system boot.
+- Discovered that .env config blocks are passive structural data files; they do not automatically execute or load into process trees on system boot.
 
-Mastered the "scoop" pattern (export $(cat .env | xargs)) to manually parse static keys from a localized, non-volatile storage asset and force ingestion into active terminal parent memory.
+- Mastered the "scoop" pattern (export $(cat .env | xargs)) to manually parse static keys from a localized, non-volatile storage asset and force ingestion into active terminal parent memory.
 
-Implemented fallback default configurations inside shell execution chains (${VARIABLE:-fallback}) to keep script threads executionally safe when handling missing memory parameters.
+- Implemented fallback default configurations inside shell execution chains (${VARIABLE:-fallback}) to keep script threads executionally safe when handling missing memory parameters.
 
-Advanced SSH Networking & Configurations:
+**Advanced SSH Networking & Configurations:**
 
-Configured local loopback mapping shortcuts inside ~/.ssh/config to safely reference complex remote network configurations and host profiles through logical human-readable nicknames (myvm, web-server, db-server).
+- Configured local loopback mapping shortcuts inside ~/.ssh/config to safely reference complex remote network configurations and host profiles through logical human-readable nicknames (myvm, web-server, db-server).
 
-Investigated core network topology rules—validating system bindings across global IPv4 (0.0.0.0:22) and IPv6 ([::]:22) network sockets using socket-statistics diagnostics tools (ss -tlnp | grep ssh).
+- Investigated core network topology rules—validating system bindings across global IPv4 (0.0.0.0:22) and IPv6 ([::]:22) network sockets using socket-statistics diagnostics tools (ss -tlnp | grep ssh).
 
-Analyzed infrastructure deployment isolation workflows using secure AcceptEnv handshakes between developer endpoints and target servers.
+- Analyzed infrastructure deployment isolation workflows using secure AcceptEnv handshakes between developer endpoints and target servers.
 
-Security & Infrastructure Controls:
+**Security & Infrastructure Controls:**
 
-Implemented absolute file boundary privacy locks utilizing restricted access masks (chmod 600) to guarantee secret storage assets are exclusively machine-readable by the host profile user account.
+- Implemented absolute file boundary privacy locks utilizing restricted access masks (chmod 600) to guarantee secret storage assets are exclusively machine-readable by the host profile user account.
 
-Integrated source control isolation mechanics using pattern boundaries (.gitignore) to prevent highly sensitive production keys or API tokens from leaking out to public tracking systems like GitHub.
+- Integrated source control isolation mechanics using pattern boundaries (.gitignore) to prevent highly sensitive production keys or API tokens from leaking out to public tracking systems like GitHub.
 
-Developed logic loops (for dir in ...) to evaluate system directory states, automate error tallies (ERRORS=$((ERRORS + 1))), and produce deterministic system exit values for modern CI/CD deployment pipelines.
+- Developed logic loops (for dir in ...) to evaluate system directory states, automate error tallies (ERRORS=$((ERRORS + 1))), and produce deterministic system exit values for modern CI/CD deployment pipelines.
+
+
+# DAY 5
+
+## process-monitor.sh
+
+- A production-ready Bash script that monitors active processes, core background services and system performance health.
+
+**What it reports:**
+- Top 5 Processes consuming the most CPU
+- Top 5 processes consuming the most Memory
+- Live status checks for critical background services (ssh, nginx, cron)
+- Total number and names of failed systemd units
+- Overall system load average and total available CPU cores
+
+** How to run **
+
+chmod +x ~/cloud-app/scripts/process-monitor.sh
+./~/cloud-app/scripts/process-monitor.sh
+
+**  What I learned **
+
+- Process vs Service Architecture: Learned that a process is any active program with a Unique PID, while a service is a specialized background process managed directly by the OS init system.
+- Systemd init mastery: Understand how systemd (PID 1) acts as the fundamental process manager responsible for system reliability auto-starting critical services on boot, and managing process auto-restarts on crashes.
+- Resource Profiling with ps and awk: Learned how to filter, sort (--sort=-%cpu), and format raw system metrics using text manipulation tools to quickly identify resource-hogging applications.
+- System Health Diagnostics: Learned how to parse system uptime and core availability (nproc) to evauluate overall server capacity, allowing for rapid troubleshooting when an enterprise application or VM is misbehaving.
+
+
