@@ -55,9 +55,9 @@ bash health-check.sh
 
 
 
-##Day 4
+## Day 4
 
-##deploy-check.sh
+## deploy-check.sh
 A comprehensive deployment readiness script that automates system pre-flight checks, verifies environmental isolation, evaluates hardware capacities, and ensures key path configurations are present before code release.
 
 What it checks:
