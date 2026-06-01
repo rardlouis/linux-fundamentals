@@ -1,6 +1,6 @@
-# Linux Fundamentals - Day 2
+## Linux Fundamentals - Day 2
 
-## server-info.sh
+### server-info.sh
 
 A shell script that generates a system overview report for any Linux server.
 
@@ -27,7 +27,7 @@ chmod +x server-info.sh
 - How bash scripts automate manual tasks
 
 ## Day 3 
-##health-check.sh
+### health-check.sh
 
 A bash script that checks system health and reports OK Or WARN for each check.
 
@@ -57,7 +57,7 @@ bash health-check.sh
 
 ## Day 4
 
-## deploy-check.sh
+### deploy-check.sh
 - A comprehensive deployment readiness script that automates system pre-flight checks, verifies environmental isolation, evaluates hardware capacities, and ensures key path configurations are present before code release.
 
 What it checks:
@@ -105,9 +105,9 @@ Environment Variable Lifecycle Management:
 - Developed logic loops (for dir in ...) to evaluate system directory states, automate error tallies (ERRORS=$((ERRORS + 1))), and produce deterministic system exit values for modern CI/CD deployment pipelines.
 
 
-# DAY 5
+## DAY 5
 
-## process-monitor.sh
+### process-monitor.sh
 
 - A production-ready Bash script that monitors active processes, core background services and system performance health.
 
@@ -130,4 +130,36 @@ chmod +x ~/cloud-app/scripts/process-monitor.sh
 - Resource Profiling with ps and awk: Learned how to filter, sort (--sort=-%cpu), and format raw system metrics using text manipulation tools to quickly identify resource-hogging applications.
 - System Health Diagnostics: Learned how to parse system uptime and core availability (nproc) to evauluate overall server capacity, allowing for rapid troubleshooting when an enterprise application or VM is misbehaving.
 
+
+## Day 6 - Package Management and Cron jobs
+
+### setup-monitoring.sh
+
+A setup script that insalls required packages, configures automated monitoring via cron, and verifies everything is working. Run it once on any linux server to set up monitoring.
+
+**How to Run:**
+bash setup-monitoring.sh
+
+**What it sets up:**
+- Installs htop, curl, tree if not present
+- Makes all scripts in /scripts executable
+- Schedules health-check.sh every 5 minutes
+- Schedules daily server report at 8 AM
+- Schedules weekly log cleanup every Sunday
+
+
+---
+
+### What I learned
+
+**Cron Jobs:**
+- Cron syntax: minute hour day month weekday command
+- ALways use absoulte paths in cron jobs
+- Always redirect output with >> logfile 2>$&1
+- Added weekly log cleanup to prevent disk from filling up
+
+**Cloud Connection:**
+- Package install commands go into EC2 bootstrap scripts
+- Cron is the Linux equivalent of AWS EventBridge schedules
+- setup-monitoring.sh is the beginning of infrastructure automation - one script configures any server
 
