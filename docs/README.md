@@ -163,3 +163,31 @@ bash setup-monitoring.sh
 - Cron is the Linux equivalent of AWS EventBridge schedules
 - setup-monitoring.sh is the beginning of infrastructure automation - one script configures any server
 
+## DAY 7
+### log-analyzer.sh
+
+A setup script that analyzes system logs, nginx access logs, auth logs, and your own health -logs -then produces a clean summary report showing error counts, tops issues, security events, and disk usage trends.
+**How to run**
+bash log-analyzer.sh
+
+**What it sets up:**
+- System Error Tracking: Inspects the last 100 lines of '/var/log/syslog' for errors, failurs, or critical events.
+- Authentication Metrics: Counts total failed and successful login attempts from '/var/log/auth.log'.
+- Application health diagnostics: Parses local health logs to pull uptime checks, warning total, and the top 3 recurring system alerts.
+- Nginx Web Analytics: Calculates total HTTP requests and breaks down web traffic by HTTP status codes (e.g., 200, 404, 500)
+- Storage Optimization: Audits and displays file sizes for system and application logs to monitor disk consumption.
+- Automated Reporting: Compiles all data into a clean, timestamped text report saved directly to your cloud logs directory.
+
+---
+
+### What I learned:
+
+**Log Management & Analysis:**
+- Primary log locations: '/var/log/syslog' for general events, '/var/log/auth.log' for security audits, and '/var/log/nginx/' for web traffic.
+- Used 'grep' and 'awk' pipeline combination to seamlessly filter out errors, parse HTTP status codes, and isolate warning metrics.
+- Leveraged system to log data to run structural security audits tracking user elevation commands and system logins via 'last'.
+
+**Infrastructure Automation & Rotation:**
+- Configured custom 'logrotate' policies to handle automatic file compression archiving, and size restriction.
+- Mastered log configurations directives including 'su', 'daily', 'rotate', 'compress', and 'missingok'.
+- Debugged subshell execution flows to bypass permission boundaries when piping privileged files through system streams

@@ -1,0 +1,52 @@
+================================================
+ LOG ANALYSIS REPORT
+ 2026年 06月 03日 星期三 08:21:18 CST
+================================================
+
+================================================
+ SYSTEM ERRORS (last 100 syslog lines)
+================================================
+Total error lines: 9
+Jun  3 07:24:46 UbuntuLabs update-notifier[2453]: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+Jun  3 07:26:49 UbuntuLabs gnome-shell[1469]: JS ERROR: Failed to initialize fprintd service: Gio.IOErrorEnum: GDBus.Error:net.reactivated.Fprint.Error.NoSuchDevice: No devices available#012asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:114:23
+Jun  3 07:35:17 UbuntuLabs update-notifier[2453]: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+Jun  3 07:35:17 UbuntuLabs update-notifier[2453]: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+Jun  3 07:41:22 UbuntuLabs gnome-shell[1469]: JS ERROR: Failed to initialize fprintd service: Gio.IOErrorEnum: GDBus.Error:net.reactivated.Fprint.Error.NoSuchDevice: No devices available#012asyncCallback@resource:///org/gnome/gjs/modules/core/overrides/Gio.js:114:23
+
+================================================
+ AUTH LOG SUMMMARY
+================================================
+Failed login attempts : 
+Succesful logins      : 4
+
+================================================
+ HEALTH CHECK SUMMARY
+================================================
+Total runs : 
+OK checks  : 775
+Warnings   : 215
+Top warnings:
+      8 [WARN] Low memory: 114336KB free
+      7 [WARN] Low memory: 169508KB free
+      6 [WARN] Low memory: 91812KB free
+
+================================================
+ NGINX ACCESS LOG SUMMARY
+================================================
+Total requests: 90
+Status codes:
+     60 404
+     30 200
+
+================================================
+ LOG FILE SIZES
+================================================
+4.0K	/home/rardlouis/cloud-app/logs/analysis-2026-06-03.txt
+4.0K	/home/rardlouis/cloud-app/logs/app.log
+4.0K	/home/rardlouis/cloud-app/logs/daily-report.log
+44K	/home/rardlouis/cloud-app/logs/health.log
+24K	/var/log/auth.log
+
+================================================
+ REPORT SAVED TO: /home/rardlouis/cloud-app/logs/analysis-2026-06-03.txt
+================================================

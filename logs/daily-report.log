@@ -1,0 +1,57 @@
+===========================
+ SERVER INFORMATION REPORT 
+===========================
+Date   : 2026年 06月 03日 星期三 08:00:01 CST
+Hostname : UbuntuLabs
+User     : rardlouis
+
+----------------------------
+ Operating System
+----------------------------
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_CODENAME=jammy
+UBUNTU_CODENAME=jammy
+Kernel   : 6.8.0-117-generic
+Uptime   : up 2 hours, 48 minutes
+
+----------------------------
+ Hardware
+----------------------------
+CPU Cores :2
+
+----------------------------
+ Memory
+----------------------------
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       717Mi       178Mi        12Mi       1.0Gi       1.0Gi
+Swap:          2.1Gi       239Mi       1.9Gi
+
+----------------------------
+ Disk Usage
+----------------------------
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda3        20G   15G  4.0G  79% /
+/dev/sda2       512M  6.1M  506M   2% /boot/efi
+
+----------------------------
+ Recent Errors
+----------------------------
+
+----------------------------
+ Network
+----------------------------
+    inet 127.0.0.1/8 scope host lo
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp0s3
+
+----------------------------
+ Directory sizes
+----------------------------
+183M	/home
+16M	/etc
+85M	/var/log
+88K	/tmp
+
+==============================
+     REPORT COMPLETE          
+==============================
