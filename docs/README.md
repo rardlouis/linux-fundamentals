@@ -191,3 +191,21 @@ bash log-analyzer.sh
 - Configured custom 'logrotate' policies to handle automatic file compression archiving, and size restriction.
 - Mastered log configurations directives including 'su', 'daily', 'rotate', 'compress', and 'missingok'.
 - Debugged subshell execution flows to bypass permission boundaries when piping privileged files through system streams
+
+
+## Day 8
+### lib.sh, run-check.sh, and ops-toolkit.sh
+
+- lib.sh - shared function library used by all scripts.
+- run-check.sh - unified entry point for existing scripts, accepts a mode argument.
+- ops-toolkit.sh - production-quality operations toolkit with named arguments, input validation, coloerd output, error handling, and trap cleanup.
+
+**How to use**
+- bash directory
+
+### What i learned:
+
+- Error handling, set -euo pipefail
+- Functions and libraries
+- Script arguments $1, $2, $3, $@ -postional arguments, argument count, all arguments
+- named flags like --action health
